@@ -23,8 +23,11 @@ const useIssues = () => {
 
     loadIssues();
   }, []);
+  const addIssue = (issue) => {
+    setIssues([issue, ...issues]);
+  };
 
-  return { issues, loading, error };
+  return { issues, loading, error, addIssue};
 };
 
 export default useIssues;

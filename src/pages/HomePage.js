@@ -6,7 +6,7 @@ import { AuthContext } from "../contexto/AuthContext";
 import useIssues from "../hooks/useIssues";
 
 export const Homepage = () => {
-  const { issues, loading, error } = useIssues();
+  const { issues, loading, error, addIssue } = useIssues();
   const { user } = useContext(AuthContext);
 
   if (loading) return <p>cargando incidencias...</p>;
@@ -14,9 +14,8 @@ export const Homepage = () => {
 
   return (
     <section>
+      {user ? <NewIssue addIssue={addIssue} /> : null}
       <h1>INCIDENCIAS</h1>
-
-{user ? <NewIssue />:null }
 
       <IssueList issues={issues} />
     </section>
