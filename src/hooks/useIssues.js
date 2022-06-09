@@ -23,11 +23,23 @@ const useIssues = () => {
 
     loadIssues();
   }, []);
-const addIssue=(issue)=>{
-  setIssues([issue, ...issues])
-} 
 
-  return { issues, loading, error, addIssue };
+  const addIssue = (issue) => {
+    setIssues([issue, ...issues]);
+  };
+
+  // funcion a estudiar para actualizar estado incidencia
+
+  const updateIssueStatus = (id, data) => {
+    setIssues(
+      issues.map((i) => {
+        if (i.id === id) return data;
+        return i;
+      })
+    );
+  };
+
+  return { issues, loading, error, addIssue, updateIssueStatus };
 };
 
 export default useIssues;

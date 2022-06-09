@@ -7,7 +7,7 @@ export const Auth = () => {
 
   return user ? (
     <p>
-      el usuario está conectado como {user.username}{" "}
+      El usuario está conectado como {user.username}{" "}
       <button onClick={() => logout()}>Desconectarse</button>
     </p>
   ) : (

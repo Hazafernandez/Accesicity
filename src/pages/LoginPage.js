@@ -4,7 +4,7 @@ import { AuthContext } from "../contexto/AuthContext";
 import { loginUserService } from "../services";
 
 export const LoginPage = () => {
-  const [username, SetUsername] = useState("");
+  const [username, setUsername] = useState(""); // A eliminar del menú de Login?
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -29,16 +29,6 @@ export const LoginPage = () => {
     <section>
       <h1>Login</h1>
       <form onSubmit={handleForm}>
-        <fieldset>
-          <label htmlFor="username">Usuario</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            required
-            onChange={(e) => SetUsername(e.target.value)}
-          />
-        </fieldset>
         <fieldset>
           <label htmlFor="email">Email</label>
           <input

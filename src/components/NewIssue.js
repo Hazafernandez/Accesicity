@@ -7,14 +7,16 @@ export const NewIssue = ({ addIssue }) => {
   const [enviando, setEnviando] = useState(false);
   const [image, setImage] = useState(null);
   const { token } = useContext(AuthContext);
+
   const handleForm = async (e) => {
-    e.preventDeFault();
+    e.preventDefault();
 
     try {
       setEnviando(true);
 
       const data = new FormData(e.target);
       const issue = await sendIssueService({ data, token });
+      console.log("data del NewIssue", data);
 
       addIssue(issue);
       e.target.reset();
@@ -31,20 +33,20 @@ export const NewIssue = ({ addIssue }) => {
       <h1> Añade una nueva incidencia</h1>
 
       <fieldset>
-        <label htmlFor="text">Título</label>
+        <label htmlFor="title">Título</label>
         <input type="text" id="title" name="title" required />
       </fieldset>
       <fieldset>
-        <label htmlFor="text">Descripción</label>
+        <label htmlFor="description">Descripción</label>
         <input type="text" id="description" name="description" required />
       </fieldset>
       <fieldset>
-        <label htmlFor="text">Ciudad</label>
+        <label htmlFor="city">Ciudad</label>
         <input type="text" id="city" name="city" required />
       </fieldset>
       <fieldset>
-        <label htmlFor="text">Barrio</label>
-        <input type="text" id="text" name="text" required />
+        <label htmlFor="hood">Barrio</label>
+        <input type="text" id="hood" name="hood" required />
       </fieldset>
       <fieldset>
         <label htmlFor="image">Imagen (Opcional)</label>
