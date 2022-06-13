@@ -26,10 +26,12 @@ export const Issue = ({ issue, updateIssueStatus }) => {
     }
   };
   return (
-    <article>
-      <span>Ciudad: {issue.city} </span>
-      <span>Barrio: {issue.hood} </span>
-      <span>Progreso de la incidencia: {issue.status}</span>
+    <article className="ind-issue">
+      <div>
+        <p>Ciudad: {issue.city} </p>
+        <p>Barrio: {issue.hood} </p>
+      </div>
+      <p>Progreso de la incidencia: {issue.status}</p>
       <p>Título: {issue.title}</p>
       <p>Descripción: {issue.description}</p>
 
@@ -40,7 +42,7 @@ export const Issue = ({ issue, updateIssueStatus }) => {
         />
       ) : null}
 
-      <p>
+      <p className="registered">
         Problema de accesibilidad registrado el{" "}
         <Link to={`/issue/${issue.id}`}>
           {new Date(issue.created_at).toLocaleString()}

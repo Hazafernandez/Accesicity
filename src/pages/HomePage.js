@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import { ErrorMessage } from "../components/ErrorMessage";
 import { IssueList } from "../components/IssueList";
+import { ListHood } from "../components/ListHood";
 import { NewIssue } from "../components/NewIssue";
+import { Search } from "../components/Search";
 import { AuthContext } from "../contexto/AuthContext";
 import useIssues from "../hooks/useIssues";
 
@@ -13,8 +15,14 @@ export const Homepage = () => {
   if (error) return <ErrorMessage message={error} />;
 
   return (
-    <section>
-      <h1>PROBLEMAS DE ACCESIBILIDAD REGISTRADOS</h1>
+    <section className="prueba">
+      <h2>PROBLEMAS DE ACCESIBILIDAD REGISTRADOS</h2>
+
+      {/* Search City */}
+      <Search />
+      {/* Search Hood */}
+      <Search />
+      {/*      <ListHood /> */}
 
       {user ? <NewIssue addIssue={addIssue} /> : null}
 
