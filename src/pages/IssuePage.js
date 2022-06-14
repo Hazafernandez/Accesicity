@@ -5,7 +5,6 @@ import useIssue from "../hooks/useIssue";
 
 export const IssuePage = () => {
   const { id } = useParams();
-  console.log(id);
 
   const { issue, loading, error } = useIssue(id);
 

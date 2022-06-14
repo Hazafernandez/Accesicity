@@ -38,7 +38,7 @@ export const registerUserService = async ({ username, email, password }) => {
   }
 };
 
-export const loginUserService = async ({ username, email, password }) => {
+export const loginUserService = async ({ email, password }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/login`, {
     method: "POST",
     headers: {
@@ -104,17 +104,25 @@ export const updateIssueService = async ({ id, token, status }) => {
   return json.data;
 };
 
-// consulta por barrio y ciudad
-export const getIssuesByHoodService = async ({ token, city, hood }) => {
+// OBTENER CIUDADES:
+
+export const getCitiesService = async () => {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}/cities`);
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json.data;
+};
+
+// OBTENER BARRIOS:
+
+export const getHoodsByCityService = async (city) => {
   const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}/issues/?city=${city}&hood=${hood}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token,
-      },
-    }
+    `${process.env.REACT_APP_BACKEND}/hoods/?city=${city}`
   );
 
   const json = await response.json();

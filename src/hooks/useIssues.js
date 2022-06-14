@@ -28,8 +28,6 @@ const useIssues = () => {
     setIssues([issue, ...issues]);
   };
 
-  // funcion a estudiar para actualizar estado incidencia
-
   const updateIssueStatus = (id, data) => {
     setIssues(
       issues.map((i) => {

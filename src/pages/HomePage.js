@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { ErrorMessage } from "../components/ErrorMessage";
 import { IssueList } from "../components/IssueList";
-import { ListHood } from "../components/ListHood";
 import { NewIssue } from "../components/NewIssue";
 import { Search } from "../components/Search";
 import { AuthContext } from "../contexto/AuthContext";
@@ -19,8 +18,6 @@ export const Homepage = () => {
       <h2>PROBLEMAS DE ACCESIBILIDAD REGISTRADOS</h2>
 
       {/* Search City */}
-      <Search />
-      {/* Search Hood */}
       <Search />
       {/*      <ListHood /> */}
 

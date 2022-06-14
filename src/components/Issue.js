@@ -37,6 +37,7 @@ export const Issue = ({ issue, updateIssueStatus }) => {
 
       {issue.image ? (
         <img
+          className="picture"
           src={`${process.env.REACT_APP_BACKEND}/uploads/${issue.image}`}
           alt={issue.tittle}
         />
