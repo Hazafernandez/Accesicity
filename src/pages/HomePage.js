@@ -1,5 +1,6 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ErrorMessage } from "../components/ErrorMessage";
+import { FilteredIssues } from "../components/FilteredIssues";
 import { IssueList } from "../components/IssueList";
 import { NewIssue } from "../components/NewIssue";
 import { Search } from "../components/Search";
@@ -7,23 +8,16 @@ import { AuthContext } from "../contexto/AuthContext";
 import useIssues from "../hooks/useIssues";
 
 export const Homepage = () => {
-  const { issues, loading, error, addIssue, updateIssueStatus } = useIssues();
-  const { user } = useContext(AuthContext);
-
-  if (loading) return <p>cargando incidencias...</p>;
-  if (error) return <ErrorMessage message={error} />;
+  const [city, setCity] = useState("");
+  const [hood, setHood] = useState("");
 
   return (
     <section className="prueba">
       <h2>PROBLEMAS DE ACCESIBILIDAD REGISTRADOS</h2>
 
-      {/* Search City */}
-      <Search />
-      {/*      <ListHood /> */}
+      <Search setFilterCity={setCity} setFilterHood={setHood} />
 
-      {user ? <NewIssue addIssue={addIssue} /> : null}
-
-      <IssueList issues={issues} updateIssueStatus={updateIssueStatus} />
+      <FilteredIssues city={city} hood={hood} />
     </section>
   );
 };

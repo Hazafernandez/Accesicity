@@ -1,5 +1,14 @@
-export const getAllIssuesService = async () => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}/issues`);
+export const getAllIssuesService = async ({ city, hood }) => {
+  const params = new URLSearchParams();
+  if (city) {
+    params.append("city", city);
+  }
+  if (hood) {
+    params.append("hood", hood);
+  }
+  const response = await fetch(
+    `${process.env.REACT_APP_BACKEND}/issues?${params.toString()}`
+  );
 
   const json = await response.json();
 
@@ -15,7 +24,7 @@ export const getSingleIssueService = async (id) => {
 
   const json = await response.json();
 
-  if (response.ok) {
+  if (!response.ok) {
     throw new Error(json.message);
   }
 

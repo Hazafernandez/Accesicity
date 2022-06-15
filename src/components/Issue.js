@@ -56,6 +56,7 @@ export const Issue = ({ issue, updateIssueStatus }) => {
               <legend>Actualizar progreso de la incidencia</legend>
               <label htmlFor="pendiente">pendiente</label>
               <input
+                className="status"
                 type="radio"
                 id="pendiente"
                 name="status"
@@ -64,6 +65,7 @@ export const Issue = ({ issue, updateIssueStatus }) => {
               />
               <label htmlFor="resuelto">resuelto</label>
               <input
+                className="status"
                 type="radio"
                 id="resuelto"
                 name="status"

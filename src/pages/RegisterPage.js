@@ -30,11 +30,13 @@ export const RegisterPage = () => {
   };
 
   return (
-    <section>
-      <h1>Register</h1>
+    <section className="register">
+      <h1 className="register">Registrar</h1>
       <form onSubmit={handleForm}>
         <fieldset>
-          <label htmlFor="username">Username</label>
+          <label className="username" htmlFor="username">
+            Username
+          </label>
           <input
             type="text"
             id="username"
@@ -55,7 +57,7 @@ export const RegisterPage = () => {
         </fieldset>
 
         <fieldset>
-          <label htmlFor="pass1">Password</label>
+          <label htmlFor="pass1">Contraseña</label>
           <input
             type="password"
             id="pass1"
@@ -66,7 +68,7 @@ export const RegisterPage = () => {
         </fieldset>
 
         <fieldset>
-          <label htmlFor="pass2">Repeat Password</label>
+          <label htmlFor="pass2">Repetir contraseña</label>
           <input
             type="password"
             id="pass2"
@@ -76,7 +78,7 @@ export const RegisterPage = () => {
           />
         </fieldset>
 
-        <button>Register</button>
+        <button>Registrar</button>
         {error ? <p>{error}</p> : null}
       </form>
     </section>

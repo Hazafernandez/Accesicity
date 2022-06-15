@@ -8,7 +8,6 @@ export const Header = () => {
       <h1>
         <Link to="/"> Accesicity</Link>
       </h1>
-
       <nav>
         <Auth />
       </nav>

@@ -4,7 +4,7 @@ import { AuthContext } from "../contexto/AuthContext";
 import { loginUserService } from "../services";
 
 export const LoginPage = () => {
-  const [username, setUsername] = useState(""); // A eliminar del menú de Login?
+  // const [username, setUsername] = useState(""); // A eliminar del menú de Login?
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -16,7 +16,7 @@ export const LoginPage = () => {
     setError("");
 
     try {
-      const data = await loginUserService({ username, email, password });
+      const data = await loginUserService({ email, password }); // eliminamos como parametro username,
 
       login(data);
       navigate("/");
@@ -26,7 +26,7 @@ export const LoginPage = () => {
   };
 
   return (
-    <section>
+    <section className="login">
       <h1>Login</h1>
       <form onSubmit={handleForm}>
         <fieldset>
@@ -40,7 +40,7 @@ export const LoginPage = () => {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Contraseña</label>
           <input
             type="password"
             id="password"

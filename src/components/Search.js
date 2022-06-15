@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexto/AuthContext";
 import { getCitiesService, getHoodsByCityService } from "../services";
 
-export const Search = () => {
-  //const { user, token } = useContext(AuthContext);
+export const Search = ({ setFilterCity, setFilterHood }) => {
+  const { user } = useContext(AuthContext);
   const [cities, setCities] = useState(null);
   const [hoods, setHoods] = useState(null);
   const [city, setCity] = useState(null);
@@ -39,43 +39,62 @@ export const Search = () => {
     }
   }, [city]);
 
-  /* FUNCION QUE DEBE FUNCIONAR PARA PASAR A FORMULARIO */
+  //funcion para filtrar:
+
+  const handleForm = (e) => {
+    e.preventDefault();
+
+    const filter = new FormData(e.target);
+    const city = filter.get("citiesgroup");
+    const hood = filter.get("hoodsgroup");
+
+    setFilterCity(city);
+    setFilterHood(hood);
+  };
+
   return (
-    <section>
-      <form>
-        <fieldset>
-          <legend>Búsqueda</legend>
-          <label>Seleccione una ciudad: </label>
-          <select
-            name="citiesgroup"
-            id="citiesgroup"
-            onChange={(e) => setCity(e.target.value)}
-          >
-            {cities ? (
-              <optgroup>
-                <option value={""}>Selecciona...</option>
-                {cities.map((city) => (
-                  <option key={city}>{city}</option>
-                ))}
-              </optgroup>
-            ) : null}
-          </select>
-          {hoods ? (
-            <>
-              <label>Seleccione un barrio: </label>
-              <select name="hoodsgroup" id="hoodsgroup">
-                <optgroup>
-                  {hoods.map((hood) => (
-                    <option>{hood}</option>
-                  ))}
-                </optgroup>
+    <article>
+      {user ? (
+        <section>
+          <form onSubmit={handleForm}>
+            <fieldset>
+              <legend>Búsqueda</legend>
+              <label>Seleccione una ciudad: </label>
+              <select
+                name="citiesgroup"
+                id="citiesgroup"
+                onChange={(e) => {
+                  setCity(e.target.value);
+                }}
+              >
+                {cities ? (
+                  <optgroup>
+                    <option value={""}>Selecciona...</option>
+                    {cities.map((city) => (
+                      <option key={city}>{city}</option>
+                    ))}
+                  </optgroup>
+                ) : null}
               </select>
-            </>
-          ) : null}
-          <button type="submit">Filtrar</button>
-        </fieldset>
-      </form>
-      {error ? <p>{error}</p> : null}
-    </section>
+              {hoods ? (
+                <>
+                  <label>Selecciona un barrio: </label>
+                  <select name="hoodsgroup" id="hoodsgroup">
+                    <optgroup>
+                      <option value={""}>Todos los barrios</option>
+                      {hoods.map((hood) => (
+                        <option key={hood}>{hood}</option>
+                      ))}
+                    </optgroup>
+                  </select>
+                </>
+              ) : null}
+              {city ? <button type="submit">Filtrar</button> : null}
+            </fieldset>
+          </form>
+          {error ? <p>{error}</p> : null}
+        </section>
+      ) : null}
+    </article>
   );
 };

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ErrorMessage } from "../components/ErrorMessage";
 import { Issue } from "../components/Issue";
 import useIssue from "../hooks/useIssue";
@@ -13,8 +13,9 @@ export const IssuePage = () => {
 
   return (
     <section>
-      <h1>INCIDENCIA DE ACCESIBILIDAD</h1>
+      <h2>INCIDENCIA DE ACCESIBILIDAD</h2>
       <Issue issue={issue} />
+      <Link to={`/`}>Homepage</Link>
     </section>
   );
 };

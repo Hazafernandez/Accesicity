@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllIssuesService } from "../services";
 
-const useIssues = () => {
+const useIssues = ({ city, hood }) => {
   const [issues, setIssues] = useState([]); //primer valor del estado y segunda funcion para actualizar el estado
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -11,7 +11,7 @@ const useIssues = () => {
       try {
         setLoading(true);
 
-        const data = await getAllIssuesService();
+        const data = await getAllIssuesService({ city, hood });
 
         setIssues(data);
       } catch (error) {
@@ -22,7 +22,7 @@ const useIssues = () => {
     };
 
     loadIssues();
-  }, []);
+  }, [city, hood]);
 
   const addIssue = (issue) => {
     setIssues([issue, ...issues]);

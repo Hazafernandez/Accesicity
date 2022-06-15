@@ -3,6 +3,7 @@ import { AuthContext } from "../contexto/AuthContext";
 import { sendIssueService } from "../services";
 
 export const NewIssue = ({ addIssue }) => {
+  const [visible, setVisible] = useState(false);
   const [error, setError] = useState("");
   const [enviando, setEnviando] = useState(false);
   const [image, setImage] = useState(null);
@@ -28,7 +29,7 @@ export const NewIssue = ({ addIssue }) => {
     }
   };
 
-  return (
+  return visible ? (
     <form onSubmit={handleForm}>
       <h1> Añade una nueva incidencia</h1>
 
@@ -69,8 +70,18 @@ export const NewIssue = ({ addIssue }) => {
       </fieldset>
 
       <button>Enviar Incidencia</button>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          setVisible(false);
+        }}
+      >
+        Cancelar
+      </button>
       {enviando ? <p>Enviando incidencia</p> : null}
       {error ? <p>{error}</p> : null}
     </form>
+  ) : (
+    <button onClick={() => setVisible(true)}>Crear incidencia</button>
   );
 };
