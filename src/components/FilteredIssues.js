@@ -18,7 +18,7 @@ export const FilteredIssues = ({ city, hood }) => {
 
   return (
     <>
-      {user ? <NewIssue addIssue={addIssue} /> : null}
+      {user && user.id === 1 ? <NewIssue addIssue={addIssue} /> : null}
       <IssueList issues={issues} updateIssueStatus={updateIssueStatus} />;
     </>
   );

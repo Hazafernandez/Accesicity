@@ -60,6 +60,7 @@ header {
     font-size: 1.2rem;
     display: grid;
     grid-template-columns: 56% auto;
+    align-items: end;
     width: 100%;
 }
 
@@ -114,16 +115,21 @@ a:visited {
     
 }
 
-ul {
+ul.list {
     display:flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     flex-wrap:wrap;
+    align-items: center;
     justify-content: space-between;
     gap: 1rem
 }
 
-li {
-    width: 100%;
+ul li {
+    list-style-type: none;
+}
+
+ul.list li {
+    width: 300px;
     list-style-type: none;
     color: black;
     text-align:justify;
@@ -177,23 +183,23 @@ p.registered {
 form {
     padding: 1rem 0rem;
     display: grid;
-   
     /* align-items: center; */
 
 
 }
 
-.register, .login {
+.user-registered {
+    font-size: 12px;
+    padding-top:1rem
+}
+
+.register, .login, .new-issue-form {
+    font-family: 'Caveat', sans-serif;
     margin-top: 2rem;
     min-width: 60vw;
-    font-family: 'Caveat', sans-serif;
-/*     display:flex;
-    flex-direction: column;
-    justify-content: space-between; */
-    text-align: center;
-    background-color: ;
-
+    text-align:center;
 }
+
 .login>h1, .register>h1{
     background-color: var(--negative);
     color: var(--positive);
@@ -225,15 +231,55 @@ form {
 
 .register fieldset input {
     min-width: 12rem;
-    /* flex-grow: 55% */
 }
 
+button.boton1 {
+    --positive: rgba(233, 233, 233, 0.959);
+    --negative: rgb(128, 116, 116);
+    background-color: var(--negative);
+    color:var(--positive);
+    border-radius: 4px;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0.5rem 0.8rem;
+}
+
+button.boton2 {
+    --positive: rgba(233, 233, 233, 0.959);
+    --negative: rgb(128, 116, 116);
+    background-color: var(--negative);
+    font-family: 'Caveat', sans-serif;
+    font-weight:bold ;
+    font-size: 1rem;
+    color:var(--positive);
+    border-radius: 4px;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0.1rem 0.5rem;
+}
+
+#issue-status, .search {
+    font-family: 'Caveat', sans-serif;
+    text-align: center;
+    
+}
+
+#issue-status fieldset {
+    border-radius: 6px;
+}
+
+#issue-status input {
+    margin-left:2rem;
+    margin-right: 0.5rem;
+}
+
+/* input:focus {
+    border: 2px solid #000;
+    background: #F3F3F3;
+}
+ */
 /* a partir de 450px mediaquery */
 @media (min-width:450px) {
-
-   
-    
-
     .ind-issue {
         border: 1px solid black;
         width: 300px;
@@ -249,10 +295,13 @@ form {
     
     }
 
-    ul {
+    ul.list {
         display:flex;
-        flex-wrap:wrap;   
-        gap: 1rem
+        flex-wrap:wrap;
+        flex-direction:initial;
+        justify-content: space-around;
+        gap: 1rem;
+  
     }
 
     li {

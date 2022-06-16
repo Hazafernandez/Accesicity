@@ -56,26 +56,28 @@ export const Search = ({ setFilterCity, setFilterHood }) => {
     <article>
       {user ? (
         <section>
-          <form onSubmit={handleForm}>
+          <form className="search" onSubmit={handleForm}>
             <fieldset>
-              <legend>Búsqueda</legend>
-              <label>Seleccione una ciudad: </label>
-              <select
-                name="citiesgroup"
-                id="citiesgroup"
-                onChange={(e) => {
-                  setCity(e.target.value);
-                }}
-              >
-                {cities ? (
-                  <optgroup>
-                    <option value={""}>Selecciona...</option>
-                    {cities.map((city) => (
-                      <option key={city}>{city}</option>
-                    ))}
-                  </optgroup>
-                ) : null}
-              </select>
+              <div>
+                <legend>Búsqueda</legend>
+                <label>Seleccione una ciudad: </label>
+                <select
+                  name="citiesgroup"
+                  id="citiesgroup"
+                  onChange={(e) => {
+                    setCity(e.target.value);
+                  }}
+                >
+                  {cities ? (
+                    <optgroup>
+                      <option value={""}>Selecciona...</option>
+                      {cities.map((city) => (
+                        <option key={city}>{city}</option>
+                      ))}
+                    </optgroup>
+                  ) : null}
+                </select>
+              </div>
               {hoods ? (
                 <>
                   <label>Selecciona un barrio: </label>
@@ -89,7 +91,14 @@ export const Search = ({ setFilterCity, setFilterHood }) => {
                   </select>
                 </>
               ) : null}
-              {city ? <button type="submit">Filtrar</button> : null}
+              {city ? (
+                <div>
+                  {" "}
+                  <button className="boton2" type="submit">
+                    Filtrar
+                  </button>{" "}
+                </div>
+              ) : null}
             </fieldset>
           </form>
           {error ? <p>{error}</p> : null}

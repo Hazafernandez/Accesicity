@@ -6,9 +6,11 @@ export const Auth = () => {
   const { user, logout } = useContext(AuthContext);
 
   return user ? (
-    <p>
+    <p className="user-registered">
       El usuario está conectado como {user.username}{" "}
-      <button onClick={() => logout()}>Desconectarse</button>
+      <button className="user-registered-boton" onClick={() => logout()}>
+        Desconectarse
+      </button>
     </p>
   ) : (
     <ul>

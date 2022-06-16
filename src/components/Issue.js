@@ -54,7 +54,6 @@ export const Issue = ({ issue, updateIssueStatus }) => {
           <form id="issue-status" onSubmit={updateIssue}>
             <fieldset>
               <legend>Actualizar progreso de la incidencia</legend>
-              <label htmlFor="pendiente">pendiente</label>
               <input
                 className="status"
                 type="radio"
@@ -63,7 +62,7 @@ export const Issue = ({ issue, updateIssueStatus }) => {
                 value="pendiente"
                 defaultChecked={issue.status === "pendiente"}
               />
-              <label htmlFor="resuelto">resuelto</label>
+              <label htmlFor="pendiente">pendiente</label>
               <input
                 className="status"
                 type="radio"
@@ -72,10 +71,13 @@ export const Issue = ({ issue, updateIssueStatus }) => {
                 value="resuelto"
                 defaultChecked={issue.status === "resuelto"}
               />
+              <label htmlFor="resuelto">resuelto</label>
               {/* <button type="submit">Actualizar</button> */}
-              <button type="submit">
-                Actualizar estado incidencia de accesibilidad
-              </button>
+              <div>
+                <button className="boton2" type="submit">
+                  Modificar
+                </button>
+              </div>
             </fieldset>
           </form>
           {error ? <p>{error}</p> : null}

@@ -30,7 +30,7 @@ export const NewIssue = ({ addIssue }) => {
   };
 
   return visible ? (
-    <form onSubmit={handleForm}>
+    <form className="new-issue-form" onSubmit={handleForm}>
       <h1> Añade una nueva incidencia</h1>
 
       <fieldset>
@@ -69,8 +69,9 @@ export const NewIssue = ({ addIssue }) => {
         ) : null}
       </fieldset>
 
-      <button>Enviar Incidencia</button>
+      <button className="boton2">Enviar Incidencia</button>
       <button
+        className="boton2"
         onClick={(e) => {
           e.preventDefault();
           setVisible(false);

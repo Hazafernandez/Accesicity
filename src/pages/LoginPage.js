@@ -16,7 +16,7 @@ export const LoginPage = () => {
     setError("");
 
     try {
-      const data = await loginUserService({ email, password }); // eliminamos como parametro username,
+      const data = await loginUserService({ email, password });
 
       login(data);
       navigate("/");
@@ -50,7 +50,7 @@ export const LoginPage = () => {
           />
         </fieldset>
 
-        <button>Login</button>
+        <button className="boton1">Login</button>
         {error ? <p>{error}</p> : null}
       </form>
     </section>

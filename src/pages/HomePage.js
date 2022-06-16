@@ -1,11 +1,11 @@
-import { useContext, useState } from "react";
-import { ErrorMessage } from "../components/ErrorMessage";
+import { useState } from "react"; //useContext,
+/* import { ErrorMessage } from "../components/ErrorMessage"; */
 import { FilteredIssues } from "../components/FilteredIssues";
-import { IssueList } from "../components/IssueList";
-import { NewIssue } from "../components/NewIssue";
+/* import { IssueList } from "../components/IssueList";
+import { NewIssue } from "../components/NewIssue"; */
 import { Search } from "../components/Search";
-import { AuthContext } from "../contexto/AuthContext";
-import useIssues from "../hooks/useIssues";
+/* import { AuthContext } from "../contexto/AuthContext";
+import useIssues from "../hooks/useIssues"; */
 
 export const Homepage = () => {
   const [city, setCity] = useState("");

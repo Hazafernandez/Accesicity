@@ -29,7 +29,6 @@ function App() {
         ) : (
           <img className="button-pic" src={logoDark} alt="dark"></img>
         )}
-        {/* {darkMode ? "☀️" : "🌙"} */}
       </button>
 
       <Routes>

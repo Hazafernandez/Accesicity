@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllIssuesService } from "../services";
 
 const useIssues = ({ city, hood }) => {
-  const [issues, setIssues] = useState([]); //primer valor del estado y segunda funcion para actualizar el estado
+  const [issues, setIssues] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
