@@ -24,9 +24,9 @@
 } */
 
 main {
-    --positive: rgba(233, 233, 233, 0.959);
+    --positive: rgba(233, 233, 233);
     --negative: rgb(128, 116, 116);
-    padding: 1rem 1rem 0rem 1rem;
+    padding: 5rem 1rem 0rem 1rem;
     width: 100vw;
     min-height: 100vh;  
     color:var(--negative);
@@ -36,7 +36,7 @@ main {
 main.dark {
     width: 100vw;
     min-height: 100vh; 
-    --negative: rgba(233, 233, 233, 0.959);
+    --negative: rgba(233, 233, 233);
     --positive: rgb(128, 116, 116);
     color:var(--negative);
     background-color: var(--positive);
@@ -53,9 +53,11 @@ main.dark {
 
 
 header {
-/*     position:fixed;
-    top:auto;
-    left:auto; */
+    position:fixed;
+    top:0;
+    left:0;
+    padding: 0rem 1rem;
+    background: linear-gradient(to bottom, rgba(233, 233, 233) 80%,  rgba(233, 233, 233, 0.9) );
     font-family: 'Pacifico', sans-serif;
     font-size: 1.2rem;
     display: grid;
@@ -103,6 +105,11 @@ footer {
     padding: 1rem;
 }
 
+main.dark footer{
+    color: rgba(247, 247, 247);
+    background-color: rgb(110, 101, 101);
+}
+
 a {
     text-decoration: none;
     text-decoration-color: none;
@@ -111,8 +118,11 @@ a {
 
 a:visited {
     text-decoration: none;
-    text-decoration-color: white;
-    
+}
+
+main.dark header {
+    color:blue;
+    background-color:black
 }
 
 ul.list {
@@ -140,7 +150,7 @@ input:not(.status) {
 }
 
 input#description {
-    height: 3rem;
+    min-height: 3rem;
 }
 
 img.picture {
@@ -149,7 +159,8 @@ img.picture {
     box-shadow: 2px -2px 2px black;
 }
 
-.prueba h2{
+/* antes estaba .prueba h2 */
+h2{
     font-family: 'Caveat', sans-serif;
     font-size: 1rem;
     text-align: center;
@@ -160,14 +171,17 @@ img.picture {
     width: 100%;
     border: 1px solid black;
     padding:0.5rem;
-    background-color: rgba(247, 247, 247, 0.959);
     box-shadow: 2px -2px 2px black;
     display: flex;
     flex-direction: column;
 /*     justify-content: space-around; */
     border-radius: 8px;
     gap:.5rem
+}
 
+main.dark .ind-issue{
+    color: rgba(247, 247, 247);
+    background-color: rgb(110, 101, 101);
 }
 
 .ind-issue>div{
@@ -184,8 +198,6 @@ form {
     padding: 1rem 0rem;
     display: grid;
     /* align-items: center; */
-
-
 }
 
 .user-registered {
@@ -208,7 +220,6 @@ form {
 }
 
 .login fieldset, .register fieldset {
-
     display: flex;
     flex-direction: row;
 }
@@ -233,7 +244,7 @@ form {
     min-width: 12rem;
 }
 
-button.boton1 {
+button.boton1, a.boton1 {
     --positive: rgba(233, 233, 233, 0.959);
     --negative: rgb(128, 116, 116);
     background-color: var(--negative);
@@ -273,11 +284,6 @@ button.boton2 {
     margin-right: 0.5rem;
 }
 
-/* input:focus {
-    border: 2px solid #000;
-    background: #F3F3F3;
-}
- */
 /* a partir de 450px mediaquery */
 @media (min-width:450px) {
     .ind-issue {
@@ -301,7 +307,6 @@ button.boton2 {
         flex-direction:initial;
         justify-content: space-around;
         gap: 1rem;
-  
     }
 
     li {

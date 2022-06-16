@@ -15,7 +15,9 @@ export const IssuePage = () => {
     <section>
       <h2>INCIDENCIA DE ACCESIBILIDAD</h2>
       <Issue issue={issue} />
-      <Link to={`/`}>Homepage</Link>
+      <Link className="boton1" to={`/`}>
+        Homepage
+      </Link>
     </section>
   );
 };
